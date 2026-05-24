@@ -1,0 +1,15 @@
+import matplotlib.pyplot as plt
+
+# 频率数据（单位：10¹⁴Hz）
+frequency = [5.196, 5.490, 6.789, 7.408, 8.214]
+# 截至电压数据
+voltage = [-0.588, -0.686, -1.252, -1.472, -1.802]
+
+plt.scatter(frequency, voltage)  # 绘制散点
+z = np.polyfit(frequency, voltage, 1)  # 拟合一次多项式（直线）
+p = np.poly1d(z)
+plt.plot(frequency, p(frequency), "r--")  # 绘制拟合直线
+plt.xlabel('Frequency (10¹⁴Hz)')
+plt.ylabel('Cut - off Voltage (V)')
+plt.title('U - ν Relationship')
+plt.show()
